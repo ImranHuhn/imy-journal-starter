@@ -54,6 +54,7 @@ async def get_all_entries(entry_service: EntryService = Depends(get_entry_servic
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error retrieving entries: {str(e)}")
 
+# get single entry
 @router.get("/entries/{entry_id}")
 async def get_entry(request: Request, entry_id: str, entry_service: EntryService = Depends(get_entry_service)):
     """
